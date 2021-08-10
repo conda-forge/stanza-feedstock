@@ -1,5 +1,5 @@
 {% set name = "stanza" %}
-{% set version = "1.2.2" %}
+{% set version = "1.2.3" %}
 
 
 package:
@@ -8,7 +8,7 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/stanza-{{ version }}.tar.gz
-  sha256: f0e819b0c1beaa54844e3ec576d26cf8332371d7af113cc9387e72eca5108579
+  sha256: 6a27f1990f4981d982939198d5c872b93fd6e1858345a915e33f42fc50b3cf22
 
 build:
   number: 0
