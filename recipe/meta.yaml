@@ -45,6 +45,7 @@ about:
   summary: A Python NLP Library for Many Human Languages, by the Stanford NLP Group
   license: Apache-2.0
   license_file: LICENSE
+  doc_url: https://stanfordnlp.github.io/stanza
 
 extra:
   recipe-maintainers:
