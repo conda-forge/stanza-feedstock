@@ -9,6 +9,8 @@ Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/stanza-feedstoc
 
 Summary: A Python NLP Library for Many Human Languages, by the Stanford NLP Group
 
+Documentation: https://stanfordnlp.github.io/stanza
+
 Current build status
 ====================
 
