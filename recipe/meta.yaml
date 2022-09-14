@@ -1,4 +1,4 @@
-{% set version = "1.4.0" %}
+{% set version = "1.4.1" %}
 
 package:
   name: stanza
@@ -6,7 +6,7 @@ package:
 
 source:
   url: https://pypi.io/packages/source/s/stanza/stanza-{{ version }}.tar.gz
-  sha256: 60681615fb9fb6cf3d66b43a2e1d140959f79f75b0da65a320b83404f0fb76c4
+  sha256: 60f3ca58501983dfce66112ec209d925ec297c9872dcbcc323da416138e359d9
 
 build:
   number: 0
