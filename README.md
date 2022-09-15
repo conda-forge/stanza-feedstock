@@ -30,6 +30,7 @@ Current release info
 | Name | Downloads | Version | Platforms |
 | --- | --- | --- | --- |
 | [![Conda Recipe](https://img.shields.io/badge/recipe-stanza-green.svg)](https://anaconda.org/conda-forge/stanza) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/stanza.svg)](https://anaconda.org/conda-forge/stanza) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/stanza.svg)](https://anaconda.org/conda-forge/stanza) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/stanza.svg)](https://anaconda.org/conda-forge/stanza) |
+| [![Conda Recipe](https://img.shields.io/badge/recipe-stanza--with--transformers-green.svg)](https://anaconda.org/conda-forge/stanza-with-transformers) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/stanza-with-transformers.svg)](https://anaconda.org/conda-forge/stanza-with-transformers) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/stanza-with-transformers.svg)](https://anaconda.org/conda-forge/stanza-with-transformers) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/stanza-with-transformers.svg)](https://anaconda.org/conda-forge/stanza-with-transformers) |
 
 Installing stanza
 =================
@@ -41,16 +42,16 @@ conda config --add channels conda-forge
 conda config --set channel_priority strict
 ```
 
-Once the `conda-forge` channel has been enabled, `stanza` can be installed with `conda`:
+Once the `conda-forge` channel has been enabled, `stanza, stanza-with-transformers` can be installed with `conda`:
 
 ```
-conda install stanza
+conda install stanza stanza-with-transformers
 ```
 
 or with `mamba`:
 
 ```
-mamba install stanza
+mamba install stanza stanza-with-transformers
 ```
 
 It is possible to list all of the versions of `stanza` available on your platform with `conda`:
