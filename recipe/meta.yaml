@@ -49,6 +49,7 @@ outputs:
       imports:
         - stanza
         - stanza.models
+        # check for missing `nn` members
         - stanza.models.constituency.utils
       commands:
         - pip check
@@ -72,12 +73,15 @@ outputs:
       imports:
         - stanza
         - stanza.models
+        # for transformers
         - stanza.models.common.bert_embedding
-        - stanza.models.constituency.utils
       commands:
         - pip check
+        - python -c "import stanza; nl = stanza.models.constituency.utils.NONLINEARITY; print(nl); assert 'mish' in nl"
       requires:
         - pip
+        # minimum with `nn.Mish`
+        - pytorch >=1.9.0
     about:
       summary: (with transformers) A Python NLP Library for Many Human Languages, by the Stanford NLP Group
 
