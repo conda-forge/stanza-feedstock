@@ -1,6 +1,5 @@
 {% set version = "1.4.2" %}
 {% set build_number = 0 %}
-{% set min_pytorch = "1.3.0" %}
 
 package:
   name: stanza-meta
@@ -38,7 +37,7 @@ outputs:
         - numpy
         - protobuf
         - python >=3.6
-        - pytorch >={{ min_pytorch }}
+        - pytorch >=1.3.0
         - requests
         - six
         - tqdm
@@ -55,8 +54,8 @@ outputs:
         - pip check
       requires:
         - pip
-          # test with minimum version
-        - pytorch {{ min_pytorch }}.*
+          # test with oldest compatible version on conda-forge
+        - pytorch 1.6.*
 
   - name: stanza-with-transformers
     build:
