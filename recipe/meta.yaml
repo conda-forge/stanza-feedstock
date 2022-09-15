@@ -28,7 +28,7 @@ outputs:
     build:
       build_number: {{ build_number }}
       noarch: python
-      script: {{ PYTHON }} -m pip install . -vv
+      script: {{ PYTHON }} -m pip install . -vv --no-deps
     requirements:
       host:
         - pip
@@ -79,7 +79,7 @@ outputs:
       requires:
         - pip
     about:
-      summary: A Python NLP Library for Many Human Languages, by the Stanford NLP Group (with transformers)
+      summary: (with transformers) A Python NLP Library for Many Human Languages, by the Stanford NLP Group
 
 about:
   home: https://github.com/stanfordnlp/stanza
