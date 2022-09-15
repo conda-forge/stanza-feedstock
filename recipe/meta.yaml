@@ -6,10 +6,8 @@ package:
   version: {{ version }}
 
 source:
-  # TODO: use real pypi sdist
-  # url: https://pypi.io/packages/source/s/stanza/stanza-{{ version }}.tar.gz
-  url: https://github.com/stanfordnlp/stanza/archive/refs/tags/v{{ version }}.tar.gz
-  sha256: 9905a78d9b58d8c703a958aba49277b9d87eb175a9c1285539b113c2ae3c40c0
+  url: https://pypi.io/packages/source/s/stanza/stanza-{{ version }}.tar.gz
+  sha256: 2f4780ee05e4920392eebef05e1632838e68c98eccc9cc9259f37ab7a00ba700
 
 build:
   number: {{ build_number }}
