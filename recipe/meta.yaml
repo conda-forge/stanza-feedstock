@@ -39,7 +39,6 @@ outputs:
         - protobuf
         - python >=3.6
         - pytorch >={{ min_pytorch }}
-        - pytest
         - requests
         - six
         - tqdm
