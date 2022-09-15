@@ -1,47 +1,86 @@
 {% set version = "1.4.1" %}
+{% set build_number = 0 %}
+{% set min_pytorch = "1.3.0" %}
 
 package:
   name: stanza
   version: {{ version }}
 
 source:
-  url: https://pypi.io/packages/source/s/stanza/stanza-{{ version }}.tar.gz
-  sha256: 60f3ca58501983dfce66112ec209d925ec297c9872dcbcc323da416138e359d9
+  # TODO: use real pypi sdist
+  # url: https://pypi.io/packages/source/s/stanza/stanza-{{ version }}.tar.gz
+  url: https://github.com/stanfordnlp/stanza/archive/refs/tags/v{{ version }}.tar.gz
+  sha256: 1f3f0c9847d02c3b67c3a7039fa861a5cc65604a83f47876b0b86842c4486c64
 
 build:
-  number: 0
+  number: {{ build_number }}
   noarch: python
-  script: {{ PYTHON }} -m pip install . -vv
 
 requirements:
   host:
     - pip
     - python >=3.6
   run:
-    - emoji
-    - numpy
-    - protobuf
     - python >=3.6
-    # AttributeError: module 'torch.nn' has no attribute 'Mish'
-    # - pytorch >=1.3.0
-    - pytorch >=1.9.0
-    - pytest
-    - requests
-    - six
-    - tqdm
-    # this is not pinned upstream, but has `pip check` issues with <3
-    - transformers >=3
 
-test:
-  imports:
-    - stanza
-    - stanza.models
-    # verify torch/transformers import API
-    - stanza.models.common.bert_embedding
-  commands:
-    - pip check
-  requires:
-    - pip
+outputs:
+  - name: stanza
+    build:
+      build_number: {{ build_number }}
+      noarch: python
+      script: {{ PYTHON }} -m pip install . -vv
+    requirements:
+      host:
+        - pip
+        - python >=3.6
+      run:
+        - emoji
+        - numpy
+        - protobuf
+        - python >=3.6
+        - pytorch >={{ min_pytorch }}
+        - pytest
+        - requests
+        - six
+        - tqdm
+      run_constrained:
+        # actual `run` dependency in stanza-with-transformers
+        - transformers >=3
+    test:
+      imports:
+        - stanza
+        - stanza.models
+        - stanza.models.constituency.utils
+      commands:
+        - pip check
+      requires:
+        - pip
+          # test with minimum version
+        - pytorch {{ min_pytorch }}.*
+
+  - name: stanza-with-transformers
+    build:
+      build_number: {{ build_number }}
+      noarch: python
+    requirements:
+      host:
+        - python >=3.6
+      run:
+        - {{ pin_subpackage("stanza", max_pin="x.x.x") }}
+        - python >=3.6
+        - transformers
+    test:
+      imports:
+        - stanza
+        - stanza.models
+        - stanza.models.common.bert_embedding
+        - stanza.models.constituency.utils
+      commands:
+        - pip check
+      requires:
+        - pip
+    about:
+      summary: A Python NLP Library for Many Human Languages, by the Stanford NLP Group (with transformers)
 
 about:
   home: https://github.com/stanfordnlp/stanza
@@ -51,6 +90,7 @@ about:
   doc_url: https://stanfordnlp.github.io/stanza
 
 extra:
+  feedstock-name: stanza
   recipe-maintainers:
     - FernandezMathieu
     - bollwyvl
