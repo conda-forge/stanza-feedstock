@@ -3,7 +3,7 @@
 {% set min_pytorch = "1.3.0" %}
 
 package:
-  name: stanza
+  name: stanza-meta
   version: {{ version }}
 
 source:
