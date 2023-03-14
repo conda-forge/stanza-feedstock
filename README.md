@@ -1,15 +1,26 @@
+About stanza-feedstock
+======================
+
+Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/stanza-feedstock/blob/main/LICENSE.txt)
+
 About stanza
-============
+------------
 
 Home: https://github.com/stanfordnlp/stanza
 
 Package license: Apache-2.0
 
-Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/stanza-feedstock/blob/main/LICENSE.txt)
-
 Summary: A Python NLP Library for Many Human Languages, by the Stanford NLP Group
 
 Documentation: https://stanfordnlp.github.io/stanza
+About stanza-with-transformers
+------------------------------
+
+
+
+Package license: 
+
+Summary: (with transformers) A Python NLP Library for Many Human Languages, by the Stanford NLP Group
 
 Current build status
 ====================
