@@ -88,5 +88,6 @@ about:
 extra:
   feedstock-name: stanza
   recipe-maintainers:
+    - AngledLuffa
     - FernandezMathieu
     - bollwyvl
