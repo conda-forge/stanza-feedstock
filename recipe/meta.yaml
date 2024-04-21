@@ -1,6 +1,7 @@
 {% set min_python = "python >=3.8" %}
 {% set min_python = "python >=3.8" %}
-{% set version = "1.8.1" %}
+{% set min_python = "python >=3.8" %}
+{% set version = "1.8.2" %}
 {% set min_python = "python >=3.8" %}
 
 package:
@@ -9,7 +10,7 @@ package:
 
 source:
   url: https://pypi.io/packages/source/s/stanza/stanza-{{ version }}.tar.gz
-  sha256: 08c4c23e5b00a678d2d801acad85bce06e5d08d4c1af2709715647a73c4f38b7
+  sha256: 49881763692f2e0e58021de85401dab46465e52a7e79d5642ad40cea538e05d1
 
 build:
   number: 0
