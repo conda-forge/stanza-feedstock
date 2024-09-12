@@ -70,6 +70,31 @@ outputs:
     about:
       summary: (with datasets) A Python NLP Library for Many Human Languages, by the Stanford NLP Group
 
+  # see https://github.com/conda-forge/stanza-feedstock/issues/21
+  #
+  # - name: stanza-with-tokenizers
+  #   build:
+  #     noarch: generic
+  #   requirements:
+  #     run:
+  #       - {{ pin_subpackage("stanza", max_pin="x.x.x") }}
+  #       - jieba
+  #       - pythainlp           # missing from conda-forge
+  #       - python-crfsuite
+  #       - spacy
+  #       - sudachidict-core    # missing from conda-forge
+  #       - sudachipy           # missing from conda-forge
+  #   test:
+  #     imports:
+  #       - stanza
+  #       - echo "TODO test improts for tokenizers"
+  #     commands:
+  #       - pip check
+  #     requires:
+  #       - pip
+  #   about:
+  #     summary: (with tokenizers) A Python NLP Library for Many Human Languages, by the Stanford NLP Group
+
   - name: stanza-with-transformers
     build:
       noarch: generic
@@ -94,29 +119,6 @@ outputs:
     about:
       summary: (with transformers) A Python NLP Library for Many Human Languages, by the Stanford NLP Group
 
-  - name: stanza-with-tokenizers
-    build:
-      noarch: generic
-    requirements:
-      run:
-        - {{ pin_subpackage("stanza", max_pin="x.x.x") }}
-        - jieba
-        - pythainlp
-        - python-crfsuite
-        - spacy
-        - sudachidict-core
-        - sudachipy
-    test:
-      imports:
-        - stanza
-        - echo "TODO test improts for tokenizers"
-      commands:
-        - pip check
-      requires:
-        - pip
-    about:
-      summary: (with tokenizers) A Python NLP Library for Many Human Languages, by the Stanford NLP Group
-
   - name: stanza-with-visualization
     build:
       noarch: generic
@@ -129,9 +131,11 @@ outputs:
     test:
       imports:
         - stanza
-        # imports `streamlit`
-        - stanza.utils.visualization.semgrex_app
-        - stanza.utils.visualization.semgrex_visualizer
+        # see https://github.com/stanfordnlp/stanza/issues/1421
+        # # imports `streamlit`
+        # - stanza.utils.visualization.semgrex_app
+        # # imports `IPython`
+        # - stanza.utils.visualization.semgrex_visualizer
       commands:
         - pip check
       requires:
