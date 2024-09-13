@@ -1,4 +1,4 @@
-{% set version = "1.9.0" %}
+{% set version = "1.9.2" %}
 
 # handle undefined PYTHON in `noarch: generic` outputs
 {% if PYTHON is not defined %}{% set PYTHON = "$PYTHON" %}{% endif %}
@@ -9,7 +9,7 @@ package:
 
 source:
   url: https://pypi.io/packages/source/s/stanza/stanza-{{ version }}.tar.gz
-  sha256: 0740bd9305151312726866c1207b74d405b89c47cbf99dbf8a86d30ce20cb81e
+  sha256: 36a93f60bf470e6026122eacab291751ad401fe3279e2d022fffef5cb35903e5
 
 build:
   number: 0
@@ -132,11 +132,10 @@ outputs:
     test:
       imports:
         - stanza
-        # see https://github.com/stanfordnlp/stanza/issues/1421
-        # # imports `streamlit`
-        # - stanza.utils.visualization.semgrex_app
-        # # imports `IPython`
-        # - stanza.utils.visualization.semgrex_visualizer
+        # imports `streamlit`
+        - stanza.utils.visualization.semgrex_app
+        # imports `IPython`, `spacy`
+        - stanza.utils.visualization.semgrex_visualizer
       commands:
         - pip check
       requires:
