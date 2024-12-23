@@ -85,8 +85,8 @@ outputs:
   #       - pythainlp           # missing from conda-forge
   #       - python-crfsuite
   #       - spacy
-  #       - sudachidict-core    # missing from conda-forge
-  #       - sudachipy           # missing from conda-forge
+  #       - sudachidict-core
+  #       - sudachipy
   #   test:
   #     imports:
   #       - stanza
