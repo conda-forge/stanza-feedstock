@@ -14,19 +14,20 @@ source:
 build:
   number: 0
   noarch: python
-  script: {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
+  script:
+    - {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation --disable-pip-version-check
 
 requirements:
   host:
     - pip
-    - python >=3.8
+    - python {{ python_min }}
     - setuptools
   run:
     - emoji
     - networkx
     - numpy
     - protobuf >=3.15.0
-    - python >=3.8
+    - python >={{ python_min }}
     - pytorch >=1.3.0
     - requests
     - tomli
@@ -68,6 +69,7 @@ outputs:
         - pip check
       requires:
         - pip
+        - python {{ python_min }}
     about:
       summary: (with datasets) A Python NLP Library for Many Human Languages, by the Stanford NLP Group
 
@@ -115,6 +117,7 @@ outputs:
         - python -c "import stanza; nl = stanza.models.constituency.utils.NONLINEARITY; print(nl); assert 'mish' in nl"
       requires:
         - pip
+        - python {{ python_min }}
         # minimum with `nn.Mish`
         - pytorch >=1.9.0
     about:
@@ -139,7 +142,10 @@ outputs:
       commands:
         - pip check
       requires:
+        # blis 1.0.1 has requirement numpy<3.0.0,>=2.0.0, but you have numpy 1.26.4.
+        - numpy >=2,<3
         - pip
+        - python {{ python_min }}
     about:
       summary: (with visualization) A Python NLP Library for Many Human Languages, by the Stanford NLP Group
 
