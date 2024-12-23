@@ -1,4 +1,4 @@
-{% set version = "1.9.2" %}
+{% set version = "1.10.0" %}
 
 # handle undefined PYTHON in `noarch: generic` outputs
 {% if PYTHON is not defined %}{% set PYTHON = "$PYTHON" %}{% endif %}
@@ -8,25 +8,26 @@ package:
   version: {{ version }}
 
 source:
-  url: https://pypi.io/packages/source/s/stanza/stanza-{{ version }}.tar.gz
-  sha256: 36a93f60bf470e6026122eacab291751ad401fe3279e2d022fffef5cb35903e5
+  url: https://pypi.org/packages/source/s/stanza/stanza-{{ version }}.tar.gz
+  sha256: e19daacde86bcf183f94da56cfbd3e99b758c96d613c0bf286bc423f9d1b88bc
 
 build:
   number: 0
   noarch: python
-  script: {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
+  script:
+    - {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation --disable-pip-version-check
 
 requirements:
   host:
     - pip
-    - python >=3.8
+    - python {{ python_min }}
     - setuptools
   run:
     - emoji
     - networkx
     - numpy
     - protobuf >=3.15.0
-    - python >=3.8
+    - python >={{ python_min }}
     - pytorch >=1.3.0
     - requests
     - tomli
@@ -68,6 +69,7 @@ outputs:
         - pip check
       requires:
         - pip
+        - python {{ python_min }}
     about:
       summary: (with datasets) A Python NLP Library for Many Human Languages, by the Stanford NLP Group
 
@@ -83,8 +85,8 @@ outputs:
   #       - pythainlp           # missing from conda-forge
   #       - python-crfsuite
   #       - spacy
-  #       - sudachidict-core    # missing from conda-forge
-  #       - sudachipy           # missing from conda-forge
+  #       - sudachidict-core
+  #       - sudachipy
   #   test:
   #     imports:
   #       - stanza
@@ -115,33 +117,48 @@ outputs:
         - python -c "import stanza; nl = stanza.models.constituency.utils.NONLINEARITY; print(nl); assert 'mish' in nl"
       requires:
         - pip
+        - python {{ python_min }}
         # minimum with `nn.Mish`
         - pytorch >=1.9.0
     about:
       summary: (with transformers) A Python NLP Library for Many Human Languages, by the Stanford NLP Group
 
-  - name: stanza-with-visualization
-    build:
-      noarch: generic
-    requirements:
-      run:
-        - {{ pin_subpackage("stanza", max_pin="x.x.x") }}
-        - spacy
-        - streamlit
-        - ipython
-    test:
-      imports:
-        - stanza
-        # imports `streamlit`
-        - stanza.utils.visualization.semgrex_app
-        # imports `IPython`, `spacy`
-        - stanza.utils.visualization.semgrex_visualizer
-      commands:
-        - pip check
-      requires:
-        - pip
-    about:
-      summary: (with visualization) A Python NLP Library for Many Human Languages, by the Stanford NLP Group
+  # https://github.com/conda-forge/stanza-feedstock/issues/26
+  # - name: stanza-with-visualization
+  #   build:
+  #     noarch: generic
+  #   requirements:
+  #     run:
+  #       - {{ pin_subpackage("stanza", max_pin="x.x.x") }}
+  #       - spacy
+  #       - streamlit
+  #       - ipython
+  #   test:
+  #     imports:
+  #       - stanza
+  #       # imports `streamlit`
+  #       - stanza.utils.visualization.semgrex_app
+  #       # imports `IPython`, `spacy`
+  #       - stanza.utils.visualization.semgrex_visualizer
+  #     commands:
+  #       - pip check
+  #     requires:
+  #       - pip
+  #       - python {{ python_min }}
+  #       # https://github.com/conda-forge/stanza-feedstock/pull/25
+  #       # pip check
+  #       #   blis 1.0.1 has requirement numpy<3.0.0,>=2.0.0, but you have numpy 1.26.4.
+  #       - numpy >=2,<3
+  #       # https://github.com/conda-forge/stanza-feedstock/pull/25
+  #       # import stanza.utils.visualization.semgrex_app
+  #       #   TypeError: Descriptors cannot be created directly.
+  #       #   If this call came from a _pb2.py file, your generated code is out of date and must be regenerated with protoc >= 3.19.0.
+  #       #   If you cannot immediately regenerate your protos, some other possible workarounds are:
+  #       #   1. Downgrade the protobuf package to 3.20.x or lower.
+  #       #   2. Set PROTOCOL_BUFFERS_PYTHON_IMPLEMENTATION=python (but this will use pure-Python parsing and will be much slower).
+  #       - protobuf <3.21
+  #   about:
+  #     summary: (with visualization) A Python NLP Library for Many Human Languages, by the Stanford NLP Group
 
 about:
   home: https://github.com/stanfordnlp/stanza
