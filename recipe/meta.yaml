@@ -142,10 +142,18 @@ outputs:
       commands:
         - pip check
       requires:
-        # blis 1.0.1 has requirement numpy<3.0.0,>=2.0.0, but you have numpy 1.26.4.
-        - numpy >=2,<3
         - pip
         - python {{ python_min }}
+        # pip check
+        #   blis 1.0.1 has requirement numpy<3.0.0,>=2.0.0, but you have numpy 1.26.4.
+        - numpy >=2,<3
+        # import stanza.utils.visualization.semgrex_app
+        #   TypeError: Descriptors cannot be created directly.
+        #   If this call came from a _pb2.py file, your generated code is out of date and must be regenerated with protoc >= 3.19.0.
+        #   If you cannot immediately regenerate your protos, some other possible workarounds are:
+        #   1. Downgrade the protobuf package to 3.20.x or lower.
+        #   2. Set PROTOCOL_BUFFERS_PYTHON_IMPLEMENTATION=python (but this will use pure-Python parsing and will be much slower).
+        - protobuf <3.21
     about:
       summary: (with visualization) A Python NLP Library for Many Human Languages, by the Stanford NLP Group
 
