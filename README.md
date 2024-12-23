@@ -183,6 +183,3 @@ Feedstock Maintainers
 * [@FernandezMathieu](https://github.com/FernandezMathieu/)
 * [@bollwyvl](https://github.com/bollwyvl/)
 
-
-<!-- dummy commit to enable rerendering -->
-
