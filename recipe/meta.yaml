@@ -1,4 +1,4 @@
-{% set version = "1.10.0" %}
+{% set version = "1.10.1" %}
 
 # handle undefined PYTHON in `noarch: generic` outputs
 {% if PYTHON is not defined %}{% set PYTHON = "$PYTHON" %}{% endif %}
@@ -9,7 +9,7 @@ package:
 
 source:
   url: https://pypi.org/packages/source/s/stanza/stanza-{{ version }}.tar.gz
-  sha256: e19daacde86bcf183f94da56cfbd3e99b758c96d613c0bf286bc423f9d1b88bc
+  sha256: f1b283021323ef9273fb1a751a194c0d568e373a2a11b933e2f4b600322406b2
 
 build:
   number: 0
