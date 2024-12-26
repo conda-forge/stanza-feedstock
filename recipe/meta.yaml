@@ -143,9 +143,9 @@ outputs:
         - pip check
       requires:
         - pip
-        # this doesn't correctly for older pythons due to `blis`, `numpy`, and `protobuf`
         # https://github.com/conda-forge/stanza-feedstock/issues/26
-        - python >=3.11
+        - python {{ vis_python_min }}.*
+        - cython-blis <1
     about:
       summary: (with visualization) A Python NLP Library for Many Human Languages, by the Stanford NLP Group
 
