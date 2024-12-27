@@ -33,6 +33,15 @@ Package license:
 
 Summary: (with transformers) A Python NLP Library for Many Human Languages, by the Stanford NLP Group
 
+About stanza-with-visualization
+-------------------------------
+
+
+
+Package license: 
+
+Summary: (with visualization) A Python NLP Library for Many Human Languages, by the Stanford NLP Group
+
 Current build status
 ====================
 
@@ -54,6 +63,7 @@ Current release info
 | [![Conda Recipe](https://img.shields.io/badge/recipe-stanza-green.svg)](https://anaconda.org/conda-forge/stanza) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/stanza.svg)](https://anaconda.org/conda-forge/stanza) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/stanza.svg)](https://anaconda.org/conda-forge/stanza) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/stanza.svg)](https://anaconda.org/conda-forge/stanza) |
 | [![Conda Recipe](https://img.shields.io/badge/recipe-stanza--with--datasets-green.svg)](https://anaconda.org/conda-forge/stanza-with-datasets) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/stanza-with-datasets.svg)](https://anaconda.org/conda-forge/stanza-with-datasets) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/stanza-with-datasets.svg)](https://anaconda.org/conda-forge/stanza-with-datasets) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/stanza-with-datasets.svg)](https://anaconda.org/conda-forge/stanza-with-datasets) |
 | [![Conda Recipe](https://img.shields.io/badge/recipe-stanza--with--transformers-green.svg)](https://anaconda.org/conda-forge/stanza-with-transformers) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/stanza-with-transformers.svg)](https://anaconda.org/conda-forge/stanza-with-transformers) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/stanza-with-transformers.svg)](https://anaconda.org/conda-forge/stanza-with-transformers) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/stanza-with-transformers.svg)](https://anaconda.org/conda-forge/stanza-with-transformers) |
+| [![Conda Recipe](https://img.shields.io/badge/recipe-stanza--with--visualization-green.svg)](https://anaconda.org/conda-forge/stanza-with-visualization) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/stanza-with-visualization.svg)](https://anaconda.org/conda-forge/stanza-with-visualization) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/stanza-with-visualization.svg)](https://anaconda.org/conda-forge/stanza-with-visualization) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/stanza-with-visualization.svg)](https://anaconda.org/conda-forge/stanza-with-visualization) |
 
 Installing stanza
 =================
@@ -65,16 +75,16 @@ conda config --add channels conda-forge
 conda config --set channel_priority strict
 ```
 
-Once the `conda-forge` channel has been enabled, `stanza, stanza-with-datasets, stanza-with-transformers` can be installed with `conda`:
+Once the `conda-forge` channel has been enabled, `stanza, stanza-with-datasets, stanza-with-transformers, stanza-with-visualization` can be installed with `conda`:
 
 ```
-conda install stanza stanza-with-datasets stanza-with-transformers
+conda install stanza stanza-with-datasets stanza-with-transformers stanza-with-visualization
 ```
 
 or with `mamba`:
 
 ```
-mamba install stanza stanza-with-datasets stanza-with-transformers
+mamba install stanza stanza-with-datasets stanza-with-transformers stanza-with-visualization
 ```
 
 It is possible to list all of the versions of `stanza` available on your platform with `conda`:
