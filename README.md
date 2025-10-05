@@ -18,29 +18,46 @@ Documentation: https://stanfordnlp.github.io/stanza
 About stanza-with-datasets
 --------------------------
 
+Home: https://github.com/stanfordnlp/stanza
 
-
-Package license: 
+Package license: Apache-2.0
 
 Summary: (with datasets) A Python NLP Library for Many Human Languages, by the Stanford NLP Group
+
+Documentation: https://stanfordnlp.github.io/stanza
+
+About stanza-with-tokenizers
+----------------------------
+
+Home: https://github.com/stanfordnlp/stanza
+
+Package license: Apache-2.0
+
+Summary: (with tokenizers) A Python NLP Library for Many Human Languages, by the Stanford NLP Group
+
+Documentation: https://stanfordnlp.github.io/stanza
 
 About stanza-with-transformers
 ------------------------------
 
+Home: https://github.com/stanfordnlp/stanza
 
-
-Package license: 
+Package license: Apache-2.0
 
 Summary: (with transformers) A Python NLP Library for Many Human Languages, by the Stanford NLP Group
+
+Documentation: https://stanfordnlp.github.io/stanza
 
 About stanza-with-visualization
 -------------------------------
 
+Home: https://github.com/stanfordnlp/stanza
 
-
-Package license: 
+Package license: Apache-2.0
 
 Summary: (with visualization) A Python NLP Library for Many Human Languages, by the Stanford NLP Group
+
+Documentation: https://stanfordnlp.github.io/stanza
 
 Current build status
 ====================
@@ -62,6 +79,7 @@ Current release info
 | --- | --- | --- | --- |
 | [![Conda Recipe](https://img.shields.io/badge/recipe-stanza-green.svg)](https://anaconda.org/conda-forge/stanza) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/stanza.svg)](https://anaconda.org/conda-forge/stanza) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/stanza.svg)](https://anaconda.org/conda-forge/stanza) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/stanza.svg)](https://anaconda.org/conda-forge/stanza) |
 | [![Conda Recipe](https://img.shields.io/badge/recipe-stanza--with--datasets-green.svg)](https://anaconda.org/conda-forge/stanza-with-datasets) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/stanza-with-datasets.svg)](https://anaconda.org/conda-forge/stanza-with-datasets) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/stanza-with-datasets.svg)](https://anaconda.org/conda-forge/stanza-with-datasets) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/stanza-with-datasets.svg)](https://anaconda.org/conda-forge/stanza-with-datasets) |
+| [![Conda Recipe](https://img.shields.io/badge/recipe-stanza--with--tokenizers-green.svg)](https://anaconda.org/conda-forge/stanza-with-tokenizers) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/stanza-with-tokenizers.svg)](https://anaconda.org/conda-forge/stanza-with-tokenizers) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/stanza-with-tokenizers.svg)](https://anaconda.org/conda-forge/stanza-with-tokenizers) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/stanza-with-tokenizers.svg)](https://anaconda.org/conda-forge/stanza-with-tokenizers) |
 | [![Conda Recipe](https://img.shields.io/badge/recipe-stanza--with--transformers-green.svg)](https://anaconda.org/conda-forge/stanza-with-transformers) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/stanza-with-transformers.svg)](https://anaconda.org/conda-forge/stanza-with-transformers) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/stanza-with-transformers.svg)](https://anaconda.org/conda-forge/stanza-with-transformers) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/stanza-with-transformers.svg)](https://anaconda.org/conda-forge/stanza-with-transformers) |
 | [![Conda Recipe](https://img.shields.io/badge/recipe-stanza--with--visualization-green.svg)](https://anaconda.org/conda-forge/stanza-with-visualization) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/stanza-with-visualization.svg)](https://anaconda.org/conda-forge/stanza-with-visualization) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/stanza-with-visualization.svg)](https://anaconda.org/conda-forge/stanza-with-visualization) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/stanza-with-visualization.svg)](https://anaconda.org/conda-forge/stanza-with-visualization) |
 
@@ -75,16 +93,16 @@ conda config --add channels conda-forge
 conda config --set channel_priority strict
 ```
 
-Once the `conda-forge` channel has been enabled, `stanza, stanza-with-datasets, stanza-with-transformers, stanza-with-visualization` can be installed with `conda`:
+Once the `conda-forge` channel has been enabled, `stanza, stanza-with-datasets, stanza-with-tokenizers, stanza-with-transformers, stanza-with-visualization` can be installed with `conda`:
 
 ```
-conda install stanza stanza-with-datasets stanza-with-transformers stanza-with-visualization
+conda install stanza stanza-with-datasets stanza-with-tokenizers stanza-with-transformers stanza-with-visualization
 ```
 
 or with `mamba`:
 
 ```
-mamba install stanza stanza-with-datasets stanza-with-transformers stanza-with-visualization
+mamba install stanza stanza-with-datasets stanza-with-tokenizers stanza-with-transformers stanza-with-visualization
 ```
 
 It is possible to list all of the versions of `stanza` available on your platform with `conda`:
@@ -134,12 +152,12 @@ it is possible to build and upload installable packages to the
 [conda-forge](https://anaconda.org/conda-forge) [anaconda.org](https://anaconda.org/)
 channel for Linux, Windows and OSX respectively.
 
-To manage the continuous integration and simplify feedstock maintenance
+To manage the continuous integration and simplify feedstock maintenance,
 [conda-smithy](https://github.com/conda-forge/conda-smithy) has been developed.
 Using the ``conda-forge.yml`` within this repository, it is possible to re-render all of
 this feedstock's supporting files (e.g. the CI configuration files) with ``conda smithy rerender``.
 
-For more information please check the [conda-forge documentation](https://conda-forge.org/docs/).
+For more information, please check the [conda-forge documentation](https://conda-forge.org/docs/).
 
 Terminology
 ===========
@@ -166,7 +184,7 @@ merged, the recipe will be re-built and uploaded automatically to the
 everybody to install and use from the `conda-forge` channel.
 Note that all branches in the conda-forge/stanza-feedstock are
 immediately built and any created packages are uploaded, so PRs should be based
-on branches in forks and branches in the main repository should only be used to
+on branches in forks, and branches in the main repository should only be used to
 build distinct package versions.
 
 In order to produce a uniquely identifiable distribution:
