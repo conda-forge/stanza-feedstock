@@ -12,6 +12,9 @@ recipe:
 source:
   url: https://pypi.org/packages/source/s/stanza/stanza-${{ version }}.tar.gz
   sha256: 42ba9d4752e74c4e1e6fc2ca96e98bb8fa194049782cc35fde2a5118fd5f75ab
+  patches:
+    # see https://github.com/stanfordnlp/stanza/pull/1517
+    - 0000-fix-paren.diff
 
 build:
   number: 0
