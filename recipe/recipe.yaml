@@ -28,7 +28,7 @@ outputs:
     requirements:
       host:
         - pip
-        - python ${{ python_min }}
+        - python ${{ python_min }}.*
         - setuptools
       run:
         - emoji

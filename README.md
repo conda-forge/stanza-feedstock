@@ -18,29 +18,35 @@ Documentation: https://stanfordnlp.github.io/stanza
 About stanza-with-datasets
 --------------------------
 
+Home: https://github.com/stanfordnlp/stanza
 
-
-Package license: 
+Package license: Apache-2.0
 
 Summary: (with datasets) A Python NLP Library for Many Human Languages, by the Stanford NLP Group
+
+Documentation: https://stanfordnlp.github.io/stanza
 
 About stanza-with-transformers
 ------------------------------
 
+Home: https://github.com/stanfordnlp/stanza
 
-
-Package license: 
+Package license: Apache-2.0
 
 Summary: (with transformers) A Python NLP Library for Many Human Languages, by the Stanford NLP Group
+
+Documentation: https://stanfordnlp.github.io/stanza
 
 About stanza-with-visualization
 -------------------------------
 
+Home: https://github.com/stanfordnlp/stanza
 
-
-Package license: 
+Package license: Apache-2.0
 
 Summary: (with visualization) A Python NLP Library for Many Human Languages, by the Stanford NLP Group
+
+Documentation: https://stanfordnlp.github.io/stanza
 
 Current build status
 ====================
