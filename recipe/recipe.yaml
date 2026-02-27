@@ -2,7 +2,7 @@
 schema_version: 1
 
 context:
-  version: "1.11.0"
+  version: "1.11.1"
   python_check_max: "3.13"
   pytorch_min: "1.13"
 
@@ -12,7 +12,7 @@ recipe:
 
 source:
   url: https://pypi.org/packages/source/s/stanza/stanza-${{ version }}.tar.gz
-  sha256: 42ba9d4752e74c4e1e6fc2ca96e98bb8fa194049782cc35fde2a5118fd5f75ab
+  sha256: eff84c40c9dab1badf89d09f04a9d887eebff01976e14f876582c0bd4bcc51e8
   patches:
     # see https://github.com/stanfordnlp/stanza/pull/1517
     - 0000-fix-paren.diff
