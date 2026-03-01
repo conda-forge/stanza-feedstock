@@ -7,55 +7,65 @@ Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/stanza-feedstoc
 About stanza
 ------------
 
-Home: https://github.com/stanfordnlp/stanza
+Home: https://pypi.org/project/stanza
 
 Package license: Apache-2.0
 
 Summary: A Python NLP Library for Many Human Languages, by the Stanford NLP Group
+
+Development: https://github.com/stanfordnlp/stanza
 
 Documentation: https://stanfordnlp.github.io/stanza
 
 About stanza-with-datasets
 --------------------------
 
-Home: https://github.com/stanfordnlp/stanza
+Home: https://pypi.org/project/stanza
 
 Package license: Apache-2.0
 
 Summary: (with datasets) A Python NLP Library for Many Human Languages, by the Stanford NLP Group
+
+Development: https://github.com/stanfordnlp/stanza
 
 Documentation: https://stanfordnlp.github.io/stanza
 
 About stanza-with-tokenizers
 ----------------------------
 
-Home: https://github.com/stanfordnlp/stanza
+Home: https://pypi.org/project/stanza
 
 Package license: Apache-2.0
 
 Summary: (with tokenizers) A Python NLP Library for Many Human Languages, by the Stanford NLP Group
+
+Development: https://github.com/stanfordnlp/stanza
 
 Documentation: https://stanfordnlp.github.io/stanza
 
 About stanza-with-transformers
 ------------------------------
 
-Home: https://github.com/stanfordnlp/stanza
+Home: https://pypi.org/project/stanza
 
 Package license: Apache-2.0
 
 Summary: (with transformers) A Python NLP Library for Many Human Languages, by the Stanford NLP Group
+
+Development: https://github.com/stanfordnlp/stanza
 
 Documentation: https://stanfordnlp.github.io/stanza
 
 About stanza-with-visualization
 -------------------------------
 
-Home: https://github.com/stanfordnlp/stanza
+Home: https://pypi.org/project/stanza
 
 Package license: Apache-2.0
 
 Summary: (with visualization) A Python NLP Library for Many Human Languages, by the Stanford NLP Group
+
+Development: https://github.com/stanfordnlp/stanza
 
 Documentation: https://stanfordnlp.github.io/stanza
 
