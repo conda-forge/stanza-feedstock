@@ -13,9 +13,6 @@ recipe:
 source:
   url: https://pypi.org/packages/source/s/stanza/stanza-${{ version }}.tar.gz
   sha256: eff84c40c9dab1badf89d09f04a9d887eebff01976e14f876582c0bd4bcc51e8
-  patches:
-    # see https://github.com/stanfordnlp/stanza/pull/1517
-    - 0000-fix-paren.diff
 
 build:
   number: 0
@@ -38,15 +35,19 @@ outputs:
         - emoji
         - networkx
         - numpy
+        - platformdirs
         - protobuf >=3.15.0
         - python >=${{ python_min }}
         - pytorch >=${{ pytorch_min }}
         - requests
         - tomli
         - tqdm
+        - udtools >=0.2.4
       run_constraints:
         - peft >=0.6.1
         - transformers >=3.0.0
+        # TODO: add extra after packaging for conda-forge
+        - morphseg >=0.2.0
     tests:
       - python:
           imports:
@@ -104,9 +105,7 @@ outputs:
           pip_check: true
           python_version:
             - ${{ python_min }}.*
-            # see https://github.com/conda-forge/python-crfsuite-feedstock/pull/35
-            # - ${{ python_check_max }}.*
-            - 3.12.*
+            - ${{ python_check_max }}.*
     about:
       summary: (with tokenizers) A Python NLP Library for Many Human Languages, by the Stanford NLP Group
 
@@ -165,7 +164,8 @@ about:
   summary: A Python NLP Library for Many Human Languages, by the Stanford NLP Group
   license: Apache-2.0
   license_file: LICENSE
-  homepage: https://github.com/stanfordnlp/stanza
+  homepage: https://pypi.org/project/stanza
+  repository: https://github.com/stanfordnlp/stanza
   documentation: https://stanfordnlp.github.io/stanza
 
 extra:
