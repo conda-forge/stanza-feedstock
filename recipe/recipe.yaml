@@ -46,7 +46,6 @@ outputs:
       run_constraints:
         - peft >=0.6.1
         - transformers >=3.0.0
-        # TODO: add extra after packaging for conda-forge
         - morphseg >=0.2.0
     tests:
       - python:
@@ -71,7 +70,7 @@ outputs:
       noarch: generic
     requirements:
       run:
-        - ${{ pin_subpackage("stanza", upper_bound="x.x.x") }}
+        - ${{ pin_subpackage("stanza", exact=True) }}
         - datasets
     tests:
       - python:
@@ -86,12 +85,32 @@ outputs:
       summary: (with datasets) A Python NLP Library for Many Human Languages, by the Stanford NLP Group
 
   - package:
+      name: stanza-with-morphseg
+    build:
+      noarch: generic
+    requirements:
+      run:
+        - ${{ pin_subpackage("stanza", exact=True) }}
+        - morphseg
+    tests:
+      - python:
+          imports:
+            - stanza
+            - stanza.pipeline.morphseg_processor
+          pip_check: true
+          python_version:
+            - ${{ python_min }}.*
+            - ${{ python_check_max }}.*
+    about:
+      summary: (with datasets) A Python NLP Library for Many Human Languages, by the Stanford NLP Group
+
+  - package:
       name: stanza-with-tokenizers
     build:
       noarch: generic
     requirements:
       run:
-        - ${{ pin_subpackage("stanza", upper_bound="x.x.x") }}
+        - ${{ pin_subpackage("stanza", exact=True) }}
         - jieba
         - pythainlp
         - python-crfsuite
@@ -115,7 +134,7 @@ outputs:
       noarch: generic
     requirements:
       run:
-        - ${{ pin_subpackage("stanza", upper_bound="x.x.x") }}
+        - ${{ pin_subpackage("stanza", exact=True) }}
         - peft
         - transformers
     tests:
@@ -143,7 +162,7 @@ outputs:
       noarch: generic
     requirements:
       run:
-        - ${{ pin_subpackage("stanza", upper_bound="x.x.x") }}
+        - ${{ pin_subpackage("stanza", exact=True) }}
         - spacy
         - streamlit
         - ipython
