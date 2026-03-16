@@ -152,7 +152,7 @@ outputs:
             - python ${{ python_min }}.*
             - pytorch ${{ pytorch_min }}.*
         script:
-          - python -c "import stanza; nl = stanza.models.constituency.utils.NONLINEARITY; print(nl); assert 'mish' in nl"
+          - python -c "import stanza; nl = stanza.models.common.utils.NONLINEARITY; print(nl); assert 'mish' in nl"
     about:
       summary: (with transformers) A Python NLP Library for Many Human Languages, by the Stanford NLP Group
 
