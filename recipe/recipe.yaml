@@ -2,7 +2,7 @@
 schema_version: 1
 
 context:
-  version: "1.11.0"
+  version: "1.11.1"
   python_check_max: "3.13"
   pytorch_min: "1.13"
 
@@ -12,10 +12,7 @@ recipe:
 
 source:
   url: https://pypi.org/packages/source/s/stanza/stanza-${{ version }}.tar.gz
-  sha256: 42ba9d4752e74c4e1e6fc2ca96e98bb8fa194049782cc35fde2a5118fd5f75ab
-  patches:
-    # see https://github.com/stanfordnlp/stanza/pull/1517
-    - 0000-fix-paren.diff
+  sha256: eff84c40c9dab1badf89d09f04a9d887eebff01976e14f876582c0bd4bcc51e8
 
 build:
   number: 0
@@ -38,15 +35,18 @@ outputs:
         - emoji
         - networkx
         - numpy
+        - platformdirs
         - protobuf >=3.15.0
         - python >=${{ python_min }}
         - pytorch >=${{ pytorch_min }}
         - requests
         - tomli
         - tqdm
+        - udtools >=0.2.4
       run_constraints:
         - peft >=0.6.1
         - transformers >=3.0.0
+        - morphseg >=0.2.0
     tests:
       - python:
           imports:
@@ -70,7 +70,7 @@ outputs:
       noarch: generic
     requirements:
       run:
-        - ${{ pin_subpackage("stanza", upper_bound="x.x.x") }}
+        - ${{ pin_subpackage("stanza", exact=True) }}
         - datasets
     tests:
       - python:
@@ -85,12 +85,32 @@ outputs:
       summary: (with datasets) A Python NLP Library for Many Human Languages, by the Stanford NLP Group
 
   - package:
+      name: stanza-with-morphseg
+    build:
+      noarch: generic
+    requirements:
+      run:
+        - ${{ pin_subpackage("stanza", exact=True) }}
+        - morphseg
+    tests:
+      - python:
+          imports:
+            - stanza
+            - stanza.pipeline.morphseg_processor
+          pip_check: true
+          python_version:
+            - ${{ python_min }}.*
+            - ${{ python_check_max }}.*
+    about:
+      summary: (with datasets) A Python NLP Library for Many Human Languages, by the Stanford NLP Group
+
+  - package:
       name: stanza-with-tokenizers
     build:
       noarch: generic
     requirements:
       run:
-        - ${{ pin_subpackage("stanza", upper_bound="x.x.x") }}
+        - ${{ pin_subpackage("stanza", exact=True) }}
         - jieba
         - pythainlp
         - python-crfsuite
@@ -104,9 +124,7 @@ outputs:
           pip_check: true
           python_version:
             - ${{ python_min }}.*
-            # see https://github.com/conda-forge/python-crfsuite-feedstock/pull/35
-            # - ${{ python_check_max }}.*
-            - 3.12.*
+            - ${{ python_check_max }}.*
     about:
       summary: (with tokenizers) A Python NLP Library for Many Human Languages, by the Stanford NLP Group
 
@@ -116,7 +134,7 @@ outputs:
       noarch: generic
     requirements:
       run:
-        - ${{ pin_subpackage("stanza", upper_bound="x.x.x") }}
+        - ${{ pin_subpackage("stanza", exact=True) }}
         - peft
         - transformers
     tests:
@@ -134,7 +152,7 @@ outputs:
             - python ${{ python_min }}.*
             - pytorch ${{ pytorch_min }}.*
         script:
-          - python -c "import stanza; nl = stanza.models.constituency.utils.NONLINEARITY; print(nl); assert 'mish' in nl"
+          - python -c "import stanza; nl = stanza.models.common.utils.NONLINEARITY; print(nl); assert 'mish' in nl"
     about:
       summary: (with transformers) A Python NLP Library for Many Human Languages, by the Stanford NLP Group
 
@@ -144,7 +162,7 @@ outputs:
       noarch: generic
     requirements:
       run:
-        - ${{ pin_subpackage("stanza", upper_bound="x.x.x") }}
+        - ${{ pin_subpackage("stanza", exact=True) }}
         - spacy
         - streamlit
         - ipython
@@ -165,7 +183,8 @@ about:
   summary: A Python NLP Library for Many Human Languages, by the Stanford NLP Group
   license: Apache-2.0
   license_file: LICENSE
-  homepage: https://github.com/stanfordnlp/stanza
+  homepage: https://pypi.org/project/stanza
+  repository: https://github.com/stanfordnlp/stanza
   documentation: https://stanfordnlp.github.io/stanza
 
 extra:
