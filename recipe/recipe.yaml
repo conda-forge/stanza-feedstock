@@ -46,7 +46,7 @@ outputs:
       run_constraints:
         - peft >=0.6.1
         - transformers >=3.0.0
-        - morphseg >=0.2.0
+        - morphseg >=0.2.5.1
     tests:
       - python:
           imports:
