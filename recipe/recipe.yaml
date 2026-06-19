@@ -33,6 +33,7 @@ outputs:
         - setuptools
       run:
         - emoji
+        - huggingface_hub
         - networkx
         - numpy
         - platformdirs
