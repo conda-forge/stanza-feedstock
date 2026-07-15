@@ -2,7 +2,7 @@
 schema_version: 1
 
 context:
-  version: "1.13.0"
+  version: "1.14.0"
   python_check_max: "3.13"
   pytorch_min: "1.13"
 
@@ -12,7 +12,7 @@ recipe:
 
 source:
   url: https://pypi.org/packages/source/s/stanza/stanza-${{ version }}.tar.gz
-  sha256: 0f5e80481b7200871149f919529e6d5cdf1e7362de268c63d9e8bc735a4b336c
+  sha256: edd1eb171d34bea920c4d06d3f007a2232a63991f20f398370204ca3ddc8287f
 
 build:
   number: 0
