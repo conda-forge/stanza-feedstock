@@ -3,7 +3,7 @@ schema_version: 1
 
 context:
   version: "1.14.0"
-  python_check_max: "3.13"
+  python_check_max: "3.14"
   pytorch_min: "1.13"
 
 recipe:
@@ -15,7 +15,7 @@ source:
   sha256: edd1eb171d34bea920c4d06d3f007a2232a63991f20f398370204ca3ddc8287f
 
 build:
-  number: 0
+  number: 1
   noarch: python
 
 outputs:
