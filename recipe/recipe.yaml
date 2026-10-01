@@ -2,20 +2,21 @@
 schema_version: 1
 
 context:
-  version: "1.14.0"
+  version: "1.15.0"
   python_check_max: "3.14"
   pytorch_min: "1.13"
+  summary: A Python NLP Library for Many Human Languages, by the Stanford NLP Group
 
 recipe:
   name: stanza-split
   version: ${{ version }}
 
 source:
-  url: https://pypi.org/packages/source/s/stanza/stanza-${{ version }}.tar.gz
-  sha256: edd1eb171d34bea920c4d06d3f007a2232a63991f20f398370204ca3ddc8287f
+  url: https://files.pythonhosted.org/packages/source/s/stanza/stanza-${{ version }}.tar.gz
+  sha256: 69f18af136ac5f88611f930af8dc37e89ae9e073e23860b3604bad9a941b44b2
 
 build:
-  number: 1
+  number: 0
   noarch: python
 
 outputs:
@@ -25,7 +26,7 @@ outputs:
       number: 0
       noarch: python
       script:
-        - ${{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation --disable-pip-version-check
+        - ${{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation --disable-pip-version-check --check-build-dependencies
     requirements:
       host:
         - pip
@@ -36,12 +37,12 @@ outputs:
         - huggingface_hub
         - networkx
         - numpy
+        - orjson
         - platformdirs
         - protobuf >=3.15.0
         - python >=${{ python_min }}
         - pytorch >=${{ pytorch_min }}
         - requests
-        - tomli
         - tqdm
         - udtools >=0.2.4
       run_constraints:
@@ -49,6 +50,10 @@ outputs:
         - transformers >=3.0.0
         - morphseg >=0.2.5.1
     tests:
+      - package_contents:
+          site_packages:
+            - stanza/**
+            - stanza-${{ version }}.dist-info/**
       - python:
           imports:
             - stanza
@@ -83,7 +88,7 @@ outputs:
             - ${{ python_min }}.*
             - ${{ python_check_max }}.*
     about:
-      summary: (with datasets) A Python NLP Library for Many Human Languages, by the Stanford NLP Group
+      summary: (with datasets) ${{ summary }}
 
   - package:
       name: stanza-with-morphseg
@@ -103,7 +108,7 @@ outputs:
             - ${{ python_min }}.*
             - ${{ python_check_max }}.*
     about:
-      summary: (with datasets) A Python NLP Library for Many Human Languages, by the Stanford NLP Group
+      summary: (with morphseg) ${{ summary }}
 
   - package:
       name: stanza-with-tokenizers
@@ -127,7 +132,7 @@ outputs:
             - ${{ python_min }}.*
             - ${{ python_check_max }}.*
     about:
-      summary: (with tokenizers) A Python NLP Library for Many Human Languages, by the Stanford NLP Group
+      summary: (with tokenizers) ${{ summary }}
 
   - package:
       name: stanza-with-transformers
@@ -155,7 +160,7 @@ outputs:
         script:
           - python -c "import stanza; nl = stanza.models.common.utils.NONLINEARITY; print(nl); assert 'mish' in nl"
     about:
-      summary: (with transformers) A Python NLP Library for Many Human Languages, by the Stanford NLP Group
+      summary: (with transformers) ${{ summary }}
 
   - package:
       name: stanza-with-visualization
@@ -178,10 +183,10 @@ outputs:
             - ${{ python_min }}.*
             - ${{ python_check_max }}.*
     about:
-      summary: (with visualization) A Python NLP Library for Many Human Languages, by the Stanford NLP Group
+      summary: (with visualization) ${{ summary }}
 
 about:
-  summary: A Python NLP Library for Many Human Languages, by the Stanford NLP Group
+  summary: ${{ summary }}
   license: Apache-2.0
   license_file: LICENSE
   homepage: https://pypi.org/project/stanza

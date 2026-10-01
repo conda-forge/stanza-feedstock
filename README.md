@@ -37,7 +37,7 @@ Home: https://pypi.org/project/stanza
 
 Package license: Apache-2.0
 
-Summary: (with datasets) A Python NLP Library for Many Human Languages, by the Stanford NLP Group
+Summary: (with morphseg) A Python NLP Library for Many Human Languages, by the Stanford NLP Group
 
 Development: https://github.com/stanfordnlp/stanza
 
