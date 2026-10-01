@@ -88,7 +88,7 @@ outputs:
             - ${{ python_min }}.*
             - ${{ python_check_max }}.*
     about:
-      summary: (with datasets) ${{ summmary }}
+      summary: (with datasets) ${{ summary }}
 
   - package:
       name: stanza-with-morphseg
@@ -160,7 +160,7 @@ outputs:
         script:
           - python -c "import stanza; nl = stanza.models.common.utils.NONLINEARITY; print(nl); assert 'mish' in nl"
     about:
-      summary: (with transformers) A Python NLP Library for Many Human Languages, by the Stanford NLP Group
+      summary: (with transformers) ${{ summary }}
 
   - package:
       name: stanza-with-visualization
